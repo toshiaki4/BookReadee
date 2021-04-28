@@ -1,0 +1,53 @@
+<% if @book.errors.any? %>
+  <h3>There are <%= @book.errors.count %>ea errors in the entered contents.</h3>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h2>User info</h2>
+<table class='table'>
+  <tr>
+
+  </tr>
+  <tr>
+   <th>name</th>
+   <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+  <div class='row'>
+    <%= link_to "", edit_user_path(user), class:"btn btn-outline-secondary btn-block fas fa-user-cog edit_user_21212" %>
+  </div>
+<h1>New book</h1>
+<%= form_with model: book, local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <%= f.text_area :body %><br>
+   <!-- 評価 -->
+  <div class="form-group row" id="star">
+    <%= f.label :rate,'review', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'book[rate]',
+    half: true,
+  });
+  </script>
+  <div class="form-group">
+    <%= f.submit 'Create Book', class:"btn btn-sm btn-success" %>
+  </div>
+  
+<% end %>
