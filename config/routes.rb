@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "home#top"
   devise_for :users
   resources :users
-  get 'home/about' => "homes#about"
+  get 'home/about' => "home#about"
 
   resources :reviews
   resources :books
