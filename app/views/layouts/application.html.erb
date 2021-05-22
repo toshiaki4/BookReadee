@@ -19,48 +19,48 @@
           <% if user_signed_in? %>
 
            <% if current_user.admin %>
-                       <li>
-              admin
-            </li>
-            <li class="fas fa-contacts nav-link text-light">
-              <%= link_to "Contacts", contacts_path %>
+            <li>
+              <%= link_to "admin", users_path, class: "fas fa-contacts nav-link text-light" %>
             </li>
             <li>
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              <%= link_to "Contacts", contacts_path, class: "fas fa-contacts nav-link text-light" %>
+            </li>
+            <li>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class: "fas fa-contacts nav-link text-light" %>
             </li>
 
           <% else %>
 
-            <li class="fas fa-home nav-link text-light">
-              <%= link_to "Home", user_path(current_user.id) %>
+            <li>
+              <%= link_to "Home", user_path(current_user.id), class: "fas fa-home nav-link text-light" %>
             </li>
-            <li class="fas fa-users nav-link text-light" >
-              <%= link_to "Users", users_path %>
+            <li>
+              <%= link_to "Users", users_path, class: "fas fa-users nav-link text-light" %>
             </li>
-            <li class="fas fa-book-open nav-link text-light">
-              <%= link_to "Books", books_path %>
+            <li>
+              <%= link_to "Books", books_path, class: "fas fa-book-open nav-link text-light" %>
             </li>
-            <li class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete">
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            <li>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
             </li>
-            <li class="fas fa-contacts nav-link text-light">
-              <%= link_to "Contacts", new_contact_path %>
+            <li>
+              <%= link_to "Contacts", new_contact_path, class: "fas fa-contacts nav-link text-light" %>
             </li>
 
           <% end %>
           <% else %>
 
-            <li class="fas fa-home nav-link text-light">
-              <%= link_to "Home", destroy_user_session_path, method: :delete %>
+            <li>
+              <%= link_to "Home", destroy_user_session_path, method: :delete, class: "fas fa-home nav-link text-light" %>
             </li>
-            <li class="fas fa-link nav-link text-light">
-              <%= link_to "About", home_about_path %>
+            <li>
+              <%= link_to "About", home_about_path,class: "fas fa-link nav-link text-light" %>
             </li>
-            <li class="fas fa-user-plus nav-link text-light">
-              <%= link_to "sign up", new_user_registration_path %>
+            <li>
+              <%= link_to "sign up", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
             </li>
-            <li class="fas fa-sign-in-alt nav-link text-light" >
-              <%= link_to "login", new_user_session_path %>
+            <li>
+              <%= link_to "login", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
             </li>
           <% end %>
         </ul>
@@ -81,11 +81,5 @@
     </footer>
   </body>
   <style>
-    li {
-      list-style: none;
-      color: white;
-
-    }
-
   </style>
 </html>
