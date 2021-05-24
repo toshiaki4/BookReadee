@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+    <p id="notice"><%= notice %></p>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Name:</th>
+          <td><%= @contact.name %></td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td><%= @contact.email %></td>
+        </tr>
+        <tr>
+          <th>Content:</th>
+          <td><%= @contact.content %></td>
+        </tr>
+        <tr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @contact.content %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+          <td></td>
+        </tr>
+      </thead>
+    </table>
+        <%= link_to 'Edit', edit_contact_path(@contact) %> |
+        <%= link_to 'Back', contacts_path %>
+    </div>
+  </div>
+</div>
