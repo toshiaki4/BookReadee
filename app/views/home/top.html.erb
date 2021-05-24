@@ -1,18 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>Welcome to <i class="fas fa-book"></i><strong>Book Readee</strong>  !!</h1>
-      <p>In  <i class="fas fa-book"></i><strong>Book Readee</strong>, </p>
-      <p>you can share and exchange  your opinions , inpressions , and emotions</p>
-      <p> about various books!</p>
-      <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
-          <a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="/users/sign_in">Log in</a>
-        </div>
-        <div class="row">
-          <a class="btn btn-success btn-sm btn-block sign_up" href="/users/sign_up">Sign Up</a>
-        </div>
-      </div>
+  <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>読んだ本の感想を投稿するサイト
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+            <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.id) do %>
+                  <%= attachment_image_tag book.user, :image, fallback: "no_image.jpg", format: 'jpeg', size: "40x40" %>
+                <% end %>
+              </td>
+              <td><%= link_to book.title, "/books/#{book.id}" %></td>
+              <td><%= book.body.truncate(10) %></td>
+              <td></td>
+            </tr>
+            <% end %>
+          </tr>
+        </thead>
+      </table>
     </div>
   </div>
 </div>
